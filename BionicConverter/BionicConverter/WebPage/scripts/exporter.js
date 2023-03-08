@@ -1,5 +1,4 @@
-//import { jsPDF } from "jspdf";
 
 function _testDebug(){
-    alert("The script was loaded successfully!");
+    console.debug("The script was loaded successfully!");
 }

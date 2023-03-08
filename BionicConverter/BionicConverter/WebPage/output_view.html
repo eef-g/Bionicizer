@@ -51,10 +51,35 @@
 
         </style>
         <script type="text/javascript" src="./scripts/converter.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.min.js"></script>
         <script type="text/javascript" src="./scripts/exporter.js"></script>
         <script>
             window.onload = function(){
                 displayText();
+                _testDebug();
+            }
+
+            function exportPDF(){
+                var pdf = new jsPDF('p', 'pt', 'letter');
+                source = localStorage.getItem("text");
+                margins = {
+                    top: 80,
+                    bottom: 60,
+                    left: 40,
+                    width: 522
+                };
+
+                pdf.fromHTML(
+                    source,
+                    margins.left,
+                    margins.top, {
+                        'width': margins.width
+                    },
+                    function (dispose) {
+                        pdf.save('Bionic_Output.pdf');
+                    },
+                    margins
+                );
             }
         </script>
 
@@ -65,7 +90,7 @@
     <body>
         <div class="topnav">
             <a class="active" href="text_input.html">New Input</a>
-            <a onclick="_testDebug();">Export To PDF</a>
+            <a onclick="exportPDF();">Export To PDF</a>
         </div>
 
         <div  id="outputField">
