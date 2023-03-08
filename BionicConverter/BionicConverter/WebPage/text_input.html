@@ -1,20 +1,70 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <title>BIonic Reading Converter</title>
         <link rel="stylesheet" href="./style.css" />
         <script type="text/javascript" src="./converter.js"></script>
+        <style>
+            html{
+                font-family: Arial, Helvetica, sans-serif;
+            }
+            .topnav{
+                background-color: #333;
+                font-family: Arial, Helvetica, sans-serif;
+                position: fixed;
+                top: 0%;
+                left:0%;
+                width: 100%;
+            }
+
+            .topnav a{
+                float: left;
+                color: #f2f2f2;
+                text-align: center;
+                padding: 1rem 0.875rem;
+                text-decoration: none;
+                font-size: 1.0625rem;
+            }
+
+            .topnav a:hover{
+                background-color: #ddd;
+                color: black;
+            }
+
+            .topnav a.active {
+                background-color: #04AA6D;
+                color: white;
+            }
+
+        </style>
+
     </head>
 
-    <body>
+    <body onkeypress="keySubmission(event);">
+        <div class="topnav">
+            <a class="active" href="#home">Home</a>
+            <a onclick="textInput();">Convert Text</a>
+        </div>
+        <div class="parent">
+ 
+            <div>
+                <h1 align="center"> Bionic Reading Converter</h1>
+                <hr>
+            </div>
 
-        <div>
-            <h1 align="center"> Bionic Reading Converter</h1>
-            <hr>
-            <p align="center"> Enter text in the field & press "Convert Text"</p>
-            <button align="center" onclick="textInput();" id="convertButton">Convert Text</button>
-            <p></p>
-            <textarea rows="50" cols="100" name = "inputField" id="inputField">
-            </textarea>
+            <div>
+                <p align="center"> Enter text in the field & press "Convert Text"</p>
+                <p align="center" style="font-size: 15px;">Or press Crtl+Enter to submit</p>
+            </div>
+
+            <div>
+            </div>
+                <div class="inputField">
+                        <textarea rows="50" cols="100" name = "inputField" id="inputField"
+                        style="border-color: #ced0d2; border-style: solid;"></textarea>
+                </div>
+            </div>
+
         </div>
     </body>
 

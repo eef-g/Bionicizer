@@ -1,19 +1,16 @@
 ﻿
 // javascript
-function changeColor(color) {
-    const name = document.getElementById('text');
-    name.style.color = color;
-}
 
 function textInput(){
     var text = document.getElementById('inputField').value;
     document.getElementById('inputField').value = "";
-    new_text = convertText(text);
+    new_text = _convertText(text);
     localStorage.setItem("text", new_text);
     window.location.href = "output_view.html";
 }
 
-function convertText(text){
+
+function _convertText(text){
     text_arr = text.split(" ");
     out = "";
     for(i = 0; i < text_arr.length; i++)
@@ -47,6 +44,7 @@ function convertText(text){
     return out;
 }
 
+
 function _spliceText(text)
 {
     firstHalf = "";
@@ -65,6 +63,15 @@ function _spliceText(text)
     return [firstHalf, secondHalf];
 }
 
+
 function displayText(){
     document.getElementById('outputText').innerHTML = localStorage.getItem("text");
+}
+
+function keySubmission(evt){
+
+    if( (evt.key == "Enter") && (evt.ctrlKey == true) )
+    {
+        textInput();
+    }
 }

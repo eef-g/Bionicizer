@@ -2,9 +2,24 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	height: 100vh;
+	height: 70rem;
+	transform: translate(-50);
 }
 
 p {
-	font-size: 1rem;
+	font-size: 1.25rem;
 }
+
+.buttonDiv{
+	margin: 0;
+	position: relative;
+	left: 45%;
+	bottom:75%;
+	-ms-transform: translateY(-50%);
+	transform: translateY(-50%);
+}
+
+.inputField{
+	margin: 0;
+}
+

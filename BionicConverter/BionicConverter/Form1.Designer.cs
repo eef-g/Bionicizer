@@ -41,7 +41,7 @@
             this.webView.Name = "webView";
             this.webView.Size = new System.Drawing.Size(1610, 1018);
             this.webView.TabIndex = 0;
-            this.webView.ZoomFactor = 0.75D;
+            this.webView.ZoomFactor = 1D;
             // 
             // Form1
             // 
