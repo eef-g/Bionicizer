@@ -15,36 +15,56 @@ function textInput(){
 
 function convertText(text){
     text_arr = text.split(" ");
-    console.debug(text_arr);
     out = "";
     for(i = 0; i < text_arr.length; i++)
     {
-        curr = text_arr[i]
+        curr = text_arr[i];
+
         if(text_arr[i].includes("\n"))
         {
             curr_arr = curr.split("\n");
-            curr = curr_arr.join("|");
-        }
 
-        if(curr.length == 1)
-        {
-            out += "<strong>" + curr + "</strong>" + " ";
+            for(j = 0; j < curr_arr.length; j++)
+            {
+                splice = _spliceText(curr_arr[j]);
+                curr_arr[j] = "<strong>" + splice[0] + "</strong>" + splice[1] + " ";
+            }
+            out += curr_arr.join("<br>");
         }
         else
         {
-
-            first_half = curr.substr(0, curr.length / 2);
-            second_half = curr.substr(curr.length / 2);
-            out += "<strong>" + first_half + "</strong>" + second_half + " ";
-            console.debug(out);
+            if(curr.length == 1)
+            {
+                out += "<strong>" + curr + "</strong>" + " ";
+            }
+            else
+            {
+                splice = _spliceText(curr);
+                out += "<strong>" + splice[0] + "</strong>" + splice[1] + " ";
+            }
         }
     }
-    out_arr = out.split("|");
-    out = out_arr.join("<br>");
     return out;
 }
 
+function _spliceText(text)
+{
+    firstHalf = "";
+    secondHalf = "";
+    if(text.length % 2 == 0)
+    {
+        firstHalf = text.substr(0, text.length / 2);
+        secondHalf = text.substr(text.length / 2);
+    }
+    else
+    {
+        firstHalf = text.substr(0, (text.length / 2) + 1);
+        secondHalf = text.substr((text.length / 2) + 1);
+    }
+
+    return [firstHalf, secondHalf];
+}
+
 function displayText(){
-    console.debug(localStorage.getItem("text"));
     document.getElementById('outputText').innerHTML = localStorage.getItem("text");
 }
