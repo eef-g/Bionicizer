@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            #outputField{
+                position: fixed;
+                top: 5%;
+                left: 5%;
+                border-style: solid;
+                height: 90%;
+                width: 90%;
+                font: 25px Arial, Serif;
+                overflow: auto;         
+            }
+        </style>
+        <script type="text/javascript" src="./converter.js"></script>
+        <script>
+            window.onload = function(){
+                displayText();
+            }
+        </script>
+        <title>Bionic Output</title>
+    </head>
+    <body>
+        <div  id="outputField">
+            <p id="outputText"></p>
+        </div>
+    </body>
+</html>

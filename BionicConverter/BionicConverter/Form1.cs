@@ -19,13 +19,12 @@ namespace BionicConverter
         {
             InitializeComponent();
             TextHandler th = new TextHandler();
-
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
             string curDir = Directory.GetCurrentDirectory();
-            webView.Source = new Uri(String.Format("file:///{0}/WebPage/view.html", curDir));
+            webView.Source = new Uri(String.Format("file:///{0}/WebPage/text_input.html", curDir));
         }
     }
 }
