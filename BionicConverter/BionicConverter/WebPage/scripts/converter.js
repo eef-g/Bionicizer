@@ -3,6 +3,10 @@
 
 function textInput(){
     var text = document.getElementById('inputField').value;
+    if(text == "")
+    {
+        text = "This page will display your text in Bionic Reading style.\nThis is example text because the input field was left blank.\nPlease click the 'New Input' button and input your own text.\n";
+    }
     document.getElementById('inputField').value = "";
     new_text = _convertText(text);
     localStorage.setItem("text", new_text);
